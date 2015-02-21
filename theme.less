@@ -32,69 +32,164 @@
 * in this file.
 */
 /* Define some variables used in multiple places */
+
 @background: #151515;
 @foreground: #ddd;
 /* Code Styling */
-.CodeMirror, .CodeMirror-scroll {
-background-color: @background;
-color: @foreground;
+
+.CodeMirror,
+.CodeMirror-scroll {
+    background-color: @background;
+    color: @foreground;
 }
+
 .CodeMirror-focused .CodeMirror-activeline-background {
-background: #2c2727;
+    background: #2c2727;
 }
+
 .show-line-padding .CodeMirror-focused .CodeMirror-activeline-background {
-box-shadow: inset 15px 0 0 0 #000;
+    box-shadow: inset 15px 0 0 0 #000;
 }
+
 .CodeMirror-focused .CodeMirror-activeline {
-.CodeMirror-gutter-elt {
-background: rgba(0, 0, 0, 0.2);
-color: #fff;
+    .CodeMirror-gutter-elt {
+        background: rgba(0, 0, 0, 0.2);
+        color: #fff;
+    }
+    .inline-widget .CodeMirror-gutter-elt {
+        color: #767676;
+    }
 }
-.inline-widget .CodeMirror-gutter-elt {
-color: #767676;
+
+// script
+.cm-m-javascript.cm-operator {
+    color: #B4B4B4;
 }
+
+.cm-m-javascript.cm-def{
+    color:#2e7b3d;
 }
-.cm-atom, .cm-string, .cm-string-2, .cm-hr {color: #f57c00;}
-.cm-number, .cm-attribute, .cm-plus {color: #c6ff00;}
-.cm-def, .cm-property {color: #689f38;}
-.cm-variable, .cm-variable-2, .cm-variable-3, .cm-operator, .cm-meta, .cm-bracket {color: @foreground;}
-.cm-comment {color: #fbe9e7;}
-.cm-error, .cm-minus {color: #dc322f;}
-.cm-header {color: #d85896;}
-.cm-link {color: #b77fdb; text-decoration: none;}
-.cm-rangeinfo {color: #6c71c4;}
-.cm-keyword, .cm-qualifier, .cm-builtin, .cm-tag, .cm-quote {color: #009688;}
+.cm-m-javascript.cm-variable {
+    color: #6a3684;
+}
+//color para las propiedades
+.cm-m-javascript.cm-property{
+    color: #EEE;
+}
+// json properties
+.cm-m-javascript.cm-string.cm-property {
+    color: #d7ba7d;
+}
+
+.cm-m-javascript.cm-number {
+    color: #B5CEA8;
+}
+
+.cm-m-javascript.cm-string-2 {
+    color: #9A5334;
+}
+
+.cm-m-javascript {
+    color: #c6c6c6;
+}
+
+.cm-atom,
+.cm-string,
+.cm-string-2,
+.cm-hr {
+    color: #f57c00;
+}
+
+.cm-number,
+.cm-attribute,
+.cm-plus {
+    color: #c6ff00;
+}
+
+.cm-def,
+.cm-property {
+    color: #689f38;
+}
+
+.cm-variable,
+.cm-variable-2,
+.cm-variable-3,
+.cm-operator,
+.cm-meta,
+.cm-bracket {
+    color: @foreground;
+}
+
+.cm-comment {
+    color: #fbe9e7;
+}
+
+.cm-error,
+.cm-minus {
+    color: #dc322f;
+}
+
+.cm-header {
+    color: #d85896;
+}
+
+.cm-link {
+    color: #b77fdb;
+    text-decoration: none;
+}
+
+.cm-rangeinfo {
+    color: #6c71c4;
+}
+
+.cm-keyword,
+.cm-qualifier,
+.cm-builtin,
+.cm-tag,
+.cm-quote {
+    color: #009688;
+}
 /* Extra CSS */
+
 .CodeMirror-searching {
-background-color: #d3cd69;
-&.searching-current-match {
-background-color: #f6a644;
+    background-color: #d3cd69;
+    &.searching-current-match {
+        background-color: #f6a644;
+    }
 }
-}
+
 .CodeMirror-cursor {
-border-left: 1px solid #c5c8c6 !important;
+    border-left: 1px solid #c5c8c6 !important;
 }
+
 .CodeMirror-gutters {
-background-color: @background;
-border-right: none;
+    background-color: @background;
+    border-right: none;
 }
+
 .CodeMirror-linenumber {
-color: #767676;
+    color: #767676;
 }
+
 .CodeMirror .CodeMirror-selected {
-background: #333f48;
+    background: #333f48;
 }
+
 .CodeMirror-focused .CodeMirror-selected {
-background: #0050a0;
+    background: #0050a0;
 }
-.CodeMirror-matchingbracket, .CodeMirror-matchingtag {
-/* Ensure visibility against gray inline editor background */
-background-color: #2e5c00;
-color: @foreground !important;
+
+.CodeMirror-matchingbracket,
+.CodeMirror-matchingtag {
+    /* Ensure visibility against gray inline editor background */
+    
+    background-color: #2e5c00;
+    color: @foreground !important;
 }
+
 .CodeMirror-overwrite .CodeMirror-cursor {
-border-left: none !important;
-border-bottom: 1px solid #fff;
+    border-left: none !important;
+    border-bottom: 1px solid #fff;
 }
 /*
 CodeMirror's use of descendant selectors for certain styling causes problems when editors are
@@ -106,36 +201,39 @@ or if any other descendant-selector-driven CM styles can differ between inner & 
 that uses a descandant selector where the CSS class name to the left of the space is something
 other than a vanilla .CodeMirror)
 */
+
 .CodeMirror {
-.CodeMirror {
-background: transparent;
-}
-.CodeMirror .CodeMirror-gutters {
-background: transparent;
-border-right: none;
-}
-.CodeMirror .CodeMirror-activeline-background {
-background: transparent;
-}
-.CodeMirror .CodeMirror-activeline .CodeMirror-gutter-elt {
-background: transparent;
-color: #767676;
-}
-.CodeMirror-focused .CodeMirror-activeline-background {
-background: #2f2f2f;
-}
-.CodeMirror-focused .CodeMirror-activeline {
-.CodeMirror-gutter-elt {
-background: rgba(0, 0, 0, 0.2);
-color: #fff;
-}
-}
+    .CodeMirror {
+        background: transparent;
+    }
+    .CodeMirror .CodeMirror-gutters {
+        background: transparent;
+        border-right: none;
+    }
+    .CodeMirror .CodeMirror-activeline-background {
+        background: transparent;
+    }
+    .CodeMirror .CodeMirror-activeline .CodeMirror-gutter-elt {
+        background: transparent;
+        color: #767676;
+    }
+    .CodeMirror-focused .CodeMirror-activeline-background {
+        background: #2f2f2f;
+    }
+    .CodeMirror-focused .CodeMirror-activeline {
+        .CodeMirror-gutter-elt {
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+    }
 }
 /* Non-editor styling */
+
 .image-view,
 .not-editor {
-background-color: @background;
+    background-color: @background;
 }
+
 .view-pane .image-view {
-color: @foreground;
-} 
+    color: @foreground;
+}
